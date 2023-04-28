@@ -1,38 +1,45 @@
-import Image from 'next/image';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
+
+import { BottomShade } from '@/components/BottomShade';
+import { ProfilePhoto } from '@/components/ProfilePhoto';
+import { TopShade } from '@/components/TopShade';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className={`m-8 flex flex-col items-center`}>
-      <section className='prose md:prose-lg lg:prose-xl prose-gray mb-6'>
-        <h1 className='text-center capitalize prose'>
-          Software engineer, finance enthusiast & mentor
-        </h1>
-        <p className='text-center'>I design and code, and I love what I do.</p>
-      </section>
-      <div
-        style={{
-          backgroundImage: 'url(self.jpg)',
-          backgroundPosition: '100% 25%',
-          borderRadius: '50%',
-          width: '300px',
-          height: '300px',
-        }}
-        className='bg-cover'
-      ></div>
-      <section className='prose md:prose-lg lg:prose-xl prose-gray'>
-        <a
-          className='text-center'
-          href='https://docs.google.com/document/d/e/2PACX-1vTm7T3R6sLc9J-Z--72hNthCAuYKSeRh2I5WIjFTkfE09XW9yf3Ql6YilMTXSa_l4dEYb7pSVv3k5gb/pub'
-        >
-          <p>Resume</p>
-        </a>
-        <a className='text-center' href='https://talks.tager.cc'>
-          <p>Talks</p>
-        </a>
-      </section>
-    </main>
+    <div className='bg-white'>
+      <div className='relative isolate px-6 pt-14 lg:px-8'>
+        <TopShade />
+
+        <div className='mx-auto max-w-2xl py-32'>
+          <div className='text-center'>
+            <ProfilePhoto />
+            <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
+              Software engineer, finance enthusiast & mentor
+            </h1>
+            <p className='mt-6 text-lg leading-8 text-gray-600'>
+              I design and code, and I love what I do.
+            </p>
+            <div className='mt-10 flex items-center justify-center gap-x-6'>
+              <a
+                href='https://docs.google.com/document/d/1OdMB6-cdY1zlMfW1XX5vXUN2lUNd9eopZmR57p31zSg/edit?usp=sharing'
+                className='rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+              >
+                Resume
+              </a>
+              <a
+                href='https://talks.tager.cc'
+                className='text-sm font-semibold leading-6 text-gray-900'
+              >
+                Tech talks <span aria-hidden='true'>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <BottomShade />
+      </div>
+    </div>
   );
 }
