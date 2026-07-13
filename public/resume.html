@@ -237,6 +237,12 @@
     flex: 1;
   }
 
+  .exp-summary {
+    margin: 0 0 26px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
   /* Timeline */
   .timeline {
     position: relative;
@@ -477,7 +483,7 @@
       <div class="avatar" aria-hidden="true">LT</div>
       <div>
         <h1>Leon Tager</h1>
-        <p class="role">Software Engineer</p>
+        <p class="role">Staff Software Engineer</p>
       </div>
     </div>
 
@@ -530,17 +536,6 @@
       </div>
 
       <div class="skill-group">
-        <h3>Big data</h3>
-        <div class="pill-row">
-          <span class="pill">BigQuery</span>
-          <span class="pill">Presto</span>
-          <span class="pill">Hive</span>
-          <span class="pill">Druid</span>
-          <span class="pill">Kafka</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
         <h3>Other</h3>
         <div class="pill-row">
           <span class="pill">AWS</span>
@@ -557,7 +552,6 @@
         <li><span>JavaScript</span></li>
         <li><span>Scala</span></li>
         <li><span>Java</span></li>
-        <li><span>Flow</span></li>
       </ul>
     </section>
   </aside>
@@ -565,24 +559,25 @@
   <main id="main-content">
     <section aria-labelledby="experience-heading">
       <h2 class="section-title" id="experience-heading">Experience</h2>
+      <p class="exp-summary">18+ years building and leading frontend engineering across fintech, ads, and travel — from individual contributor to setting technical direction for AI tooling and community platforms used by thousands of employees and ambassadors.</p>
 
       <div class="timeline">
         <div class="timeline-item current">
           <div class="tl-dates">2021 — Current</div>
           <div class="tl-org"><span class="org-badge" style="background:#FF5A5F;" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg></span>Airbnb</div>
-          <div class="tl-role">Staff Frontend software engineer</div>
+          <div class="tl-role">Staff Frontend Software Engineer</div>
 
           <p class="tl-group-label">Machine learning infrastructure</p>
           <ul class="bullets">
-            <li>Serving as technical lead for Gen AI Studio, a platform enabling rapid generative AI application development adopted by hundreds of Airbnb engineers.</li>
-            <li>Owning the end-to-end frontend experience for ML engineers, optimizing the experience for model evaluation, dataset and prompt management, and iteration across the AI development lifecycle.</li>
+            <li>Set technical direction as lead for Gen AI Studio, a platform enabling rapid generative AI application development adopted by hundreds of Airbnb engineers.</li>
+            <li>Owned the end-to-end frontend architecture for ML engineers, shaping the experience for model evaluation, dataset and prompt management, and iteration across the AI development lifecycle.</li>
             <li>Partnered closely with ML, infra, and product stakeholders to translate complex ML workflows into intuitive, developer-friendly interfaces.</li>
           </ul>
 
           <p class="tl-group-label">Community support platform</p>
           <ul class="bullets">
-            <li>Served as tech lead for Ambassador Productivity, overseeing the design and development of performant, user-centric tools empowering 15,000+ Airbnb ambassadors.</li>
-            <li>Influenced company-wide hiring quality by leading frontend working group to establish consistent interview questions and rubrics across all of engineering.</li>
+            <li>Led technical strategy for Ambassador Productivity, directing the design and development of performant, user-centric tools empowering 15,000+ Airbnb ambassadors.</li>
+            <li>Influenced company-wide hiring quality by leading the frontend working group that established consistent interview questions and rubrics across all of engineering.</li>
           </ul>
         </div>
 
@@ -636,18 +631,6 @@
         <div class="talk">
           <h3><a href="https://slides.com/leontager/my-attempt-at-monads" target="_blank" rel="noopener noreferrer">Introduction to monads</a></h3>
           <p>A primer on functional programming and monads.</p>
-        </div>
-        <div class="talk">
-          <h3><a href="https://slides.com/leontager/personal-finance-ii" target="_blank" rel="noopener noreferrer">Intro to personal finance</a></h3>
-          <p>A quick primer on personal finance for those just starting their career.</p>
-        </div>
-        <div class="talk">
-          <h3><a href="https://docs.google.com/presentation/d/1VfQLQZgjAHZHu3rKvO633MDg7Y1lFawmwAcAbB7-Fyg/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Intermittent fasting</a></h3>
-          <p>What is intermittent fasting and what are the benefits?</p>
-        </div>
-        <div class="talk">
-          <h3><a href="https://docs.google.com/presentation/d/1fYkBhSPNr1m0qfvkR03zMAS0BzOI47oPmPVxy5BEeOM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Heart disease</a></h3>
-          <p>What is the root cause of heart disease.</p>
         </div>
       </div>
     </section>
