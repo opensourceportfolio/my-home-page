@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leon Tager — Software Engineer</title>
+<meta name="description" content="Resume of Leon Tager, Staff Frontend Software Engineer at Airbnb.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111827;
+    --ink-soft: #4b5563;
+    --paper: #ffffff;
+    --panel: #ffffff;
+    --sidebar-bg: #f9fafb;
+    --sidebar-ink: #111827;
+    --sidebar-ink-soft: #6b7280;
+    --line: #e5e7eb;
+    --accent: #4f46e5;
+    --accent-soft: #e0e7ff;
+    --pill-bg: #eef2ff;
+    --pill-ink: #4338ca;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+    --max-w: 1080px;
+    font-size: 16px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  a:hover, a:focus-visible { border-bottom-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+  }
+  .skip-link:focus {
+    left: 8px;
+    top: 8px;
+    background: var(--panel);
+    padding: 8px 12px;
+    border-radius: 8px;
+    z-index: 10;
+  }
+
+  .page {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside.sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-ink);
+    padding: clamp(28px, 4vw, 44px) clamp(22px, 3vw, 32px);
+    border-right: 1px solid var(--line);
+  }
+
+  .identity {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, var(--accent), #4338ca);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    box-shadow: var(--shadow);
+  }
+
+  .identity h1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0 0 4px;
+    letter-spacing: 0.01em;
+    color: var(--sidebar-ink);
+  }
+
+  .identity .role {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--sidebar-ink-soft);
+  }
+
+  .sidebar section { margin-top: 34px; }
+
+  .sidebar h2 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+  }
+
+  .contact-list svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+
+  .contact-list a { color: var(--sidebar-ink); word-break: break-word; }
+  .contact-list a:hover { border-bottom-color: var(--sidebar-ink-soft); }
+
+  .skill-group { margin-bottom: 20px; }
+  .skill-group:last-child { margin-bottom: 0; }
+
+  .skill-group h3 {
+    font-size: 0.78rem;
+    color: var(--sidebar-ink-soft);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--pill-bg);
+    color: var(--pill-ink);
+    border: 1px solid var(--accent-soft);
+  }
+
+  .lang-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lang-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 5px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    max-width: 90px;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 999px;
+  }
+
+  /* ---------- Main ---------- */
+  main {
+    padding: clamp(28px, 4vw, 48px) clamp(22px, 4vw, 56px);
+  }
+
+  main > section { margin-bottom: 46px; }
+  main > section:last-child { margin-bottom: 0; }
+
+  h2.section-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.01em;
+    margin: 0 0 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  h2.section-title::after {
+    content: "";
+    flex: 1;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--line);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 34px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .timeline-item.current::before {
+    background: var(--paper);
+    border: 2px solid var(--accent);
+  }
+
+  .tl-dates {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .tl-org {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .tl-role {
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .tl-group-label {
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin: 14px 0 6px;
+    color: var(--ink);
+  }
+
+  .tl-org .org-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .tl-org .org-badge svg { width: 13px; height: 13px; }
+
+  .tl-org .org-logo-plain {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tl-org .org-logo-plain svg { width: 19px; height: 19px; }
+
+  ul.bullets {
+    margin: 0;
+    padding-left: 1.1em;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  ul.bullets li { margin-bottom: 6px; }
+  ul.bullets li:last-child { margin-bottom: 0; }
+  ul.bullets a { color: var(--accent); }
+
+  /* Talks list */
+  .talks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px 28px;
+  }
+  .talk h3 {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+  }
+  .talk h3 a { color: var(--ink); }
+  .talk h3 a:hover { color: var(--accent); }
+  .talk p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  /* Education */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-year {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .edu-item h3 { margin: 0 0 2px; font-size: 0.98rem; }
+  .edu-item p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+  footer.print-only { display: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .page {
+      grid-template-columns: 1fr;
+    }
+    aside.sidebar {
+      order: 1;
+    }
+    main { order: 2; }
+    .identity { margin-bottom: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    :root { font-size: 15px; }
+    .edu-item { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  /* ---------- Print ---------- */
+  @page {
+    size: letter;
+    margin: 0.35in 0.45in;
+  }
+
+  @media print {
+    :root { font-size: 12.3px; }
+
+    body { background: #fff; }
+
+    .skip-link { display: none; }
+
+    .page {
+      grid-template-columns: 200px 1fr;
+      gap: 0 28px;
+      min-height: 0;
+      max-width: 100%;
+    }
+
+    aside.sidebar {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 6px 16px 6px 0;
+      background: #fff;
+      color: var(--ink);
+    }
+    aside.sidebar, aside.sidebar h2, aside.sidebar .identity .role,
+    .contact-list a, .contact-list li, .skill-group h3 {
+      color: var(--ink);
+    }
+    .sidebar-ink-fix { color: var(--ink); }
+    aside.sidebar h1 { color: var(--ink); }
+    .identity .role, .skill-group h3 { color: var(--ink-soft); }
+    .contact-list a { color: var(--ink); }
+    .pill {
+      background: var(--pill-bg);
+      color: var(--pill-ink);
+      border-color: var(--line);
+    }
+    .bar-track { background: var(--line); }
+
+    .avatar { width: 46px; height: 46px; font-size: 1rem; box-shadow: none; }
+    .identity { gap: 10px; margin-bottom: 14px; }
+    .identity h1 { font-size: 1.1rem; }
+
+    .sidebar section { margin-top: 14px; }
+    .sidebar h2 { font-size: 0.66rem; margin-bottom: 8px; }
+    .contact-list { gap: 6px; }
+    .skill-group { margin-bottom: 10px; }
+    .skill-group h3 { margin-bottom: 6px; }
+    .pill { padding: 2px 8px; font-size: 0.68rem; }
+    .lang-list { gap: 4px; }
+
+    main { padding: 0; }
+    main > section { margin-bottom: 16px; }
+
+    h2.section-title { font-size: 1rem; margin-bottom: 10px; padding-bottom: 5px; }
+
+    .timeline { padding-left: 20px; }
+    .timeline-item { padding-bottom: 14px; }
+    .timeline-item::before { left: -25px; width: 8px; height: 8px; box-shadow: 0 0 0 3px var(--accent-soft); }
+    .tl-org { font-size: 0.92rem; margin-bottom: 1px; }
+    .tl-role { margin-bottom: 5px; }
+    .tl-group-label { margin: 8px 0 3px; }
+    ul.bullets { font-size: 0.83rem; }
+    ul.bullets li { margin-bottom: 2px; }
+
+    .talks-grid { gap: 8px 24px; }
+
+    .edu-item { padding: 6px 0; }
+
+    a { border-bottom: none; }
+
+    /* Pagination control */
+    h2.section-title, .tl-org, .tl-group-label { break-after: avoid; page-break-after: avoid; }
+    .timeline-item, .talk, .edu-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    section[aria-labelledby="experience-heading"] { break-after: page; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="page">
+  <aside class="sidebar" aria-label="Contact and skills">
+    <div class="identity">
+      <div class="avatar" aria-hidden="true">LT</div>
+      <div>
+        <h1>Leon Tager</h1>
+        <p class="role">Software Engineer</p>
+      </div>
+    </div>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+14089095060">(408) 909-5060</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <a href="mailto:leon@tager.cc">leon@tager.cc</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Seattle, Washington</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55v-2.17c-3.2.7-3.87-1.35-3.87-1.35-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.26 5.7.42.36.78 1.07.78 2.17v3.22c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          <a href="https://github.com/opensourceportfolio" target="_blank" rel="noopener noreferrer">github.com/<wbr>opensourceportfolio</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.36V9h3.4v1.56h.05c.47-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          <a href="https://www.linkedin.com/in/leon-tager/" target="_blank" rel="noopener noreferrer">linkedin.com/in/leon-tager</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+          <a href="https://tager.cc" target="_blank" rel="noopener noreferrer">tager.cc</a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="expertise-heading">
+      <h2 id="expertise-heading">Expertise</h2>
+
+      <div class="skill-group">
+        <h3>Web technologies</h3>
+        <div class="pill-row">
+          <span class="pill">React</span>
+          <span class="pill">React Native</span>
+          <span class="pill">Next.js</span>
+          <span class="pill">GraphQL</span>
+          <span class="pill">Redux</span>
+          <span class="pill">Jest</span>
+          <span class="pill">Testing Library</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Big data</h3>
+        <div class="pill-row">
+          <span class="pill">BigQuery</span>
+          <span class="pill">Presto</span>
+          <span class="pill">Hive</span>
+          <span class="pill">Druid</span>
+          <span class="pill">Kafka</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Other</h3>
+        <div class="pill-row">
+          <span class="pill">AWS</span>
+          <span class="pill">GCP</span>
+          <span class="pill">Node.js</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="languages-heading">
+      <h2 id="languages-heading">Languages</h2>
+      <ul class="lang-list">
+        <li><span>TypeScript</span></li>
+        <li><span>JavaScript</span></li>
+        <li><span>Scala</span></li>
+        <li><span>Java</span></li>
+        <li><span>Flow</span></li>
+      </ul>
+    </section>
+  </aside>
+
+  <main id="main-content">
+    <section aria-labelledby="experience-heading">
+      <h2 class="section-title" id="experience-heading">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item current">
+          <div class="tl-dates">2021 — Current</div>
+          <div class="tl-org"><span class="org-badge" style="background:#FF5A5F;" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg></span>Airbnb</div>
+          <div class="tl-role">Staff Frontend Software Engineer</div>
+
+          <p class="tl-group-label">Machine Learning Infrastructure</p>
+          <ul class="bullets">
+            <li>Leading the development of Generative AI Studio, a suite of tools focused on accelerating generative AI application development within Airbnb.</li>
+          </ul>
+
+          <p class="tl-group-label">Community Support Platform</p>
+          <ul class="bullets">
+            <li>Integrated generative AI into ambassadors' workflows to provide conversation summaries, suggested responses, and phone call transcription, enhancing ambassador efficiency.</li>
+            <li>Tech lead for the safety and ambassador productivity group within the community support organization, providing support to over 15,000 Airbnb ambassadors.</li>
+            <li>Shaped Airbnb's company-wide hiring process by leading the front-end working group responsible for creating interview questions.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dates">2016 — 2021</div>
+          <div class="tl-org"><span class="org-badge" style="background:#1DA1F2;" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg></span>Twitter</div>
+          <ul class="bullets">
+            <li>Tech lead for the revenue and ads management team; led development of key applications to help monetize Twitter ads.</li>
+            <li>Designed a survey system to measure ad impact across randomized experiments.</li>
+            <li>Deeply involved in standardizing the hiring process of engineers across the org.</li>
+            <li>Developed several UI components used across the entire company.</li>
+            <li>Built batch processing pipelines to enable various Twitter Ads analytics use cases.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dates">2013 — 2016</div>
+          <div class="tl-org"><span class="org-logo-plain" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="11.408" height="11.408" fill="#F25022"/><rect x="12.594" y="0" width="11.408" height="11.408" fill="#7FBA00"/><rect x="0" y="12.594" width="11.408" height="11.408" fill="#00A4EF"/><rect x="12.594" y="12.594" width="11.408" height="11.408" fill="#FFB900"/></svg></span>Microsoft</div>
+          <ul class="bullets">
+            <li>Led a redesign effort across Bing Ads to bring the UI a more consistent look.</li>
+            <li>Improved productivity by setting up hot-reloading, automated formatting, linting, and source map generation across the system.</li>
+            <li>Built unit, integration, and E2E tests for Bing Ads.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dates">2008 — 2013</div>
+          <div class="tl-org"><span class="org-badge" style="background:#00539B;font-size:0.72rem;" aria-hidden="true">N</span>Northbridge Financial</div>
+          <ul class="bullets">
+            <li>Developed and maintained key applications to allow processing claims and determining premiums.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="speaking-heading">
+      <h2 class="section-title" id="speaking-heading">Public Speaking</h2>
+      <div class="talks-grid">
+        <div class="talk">
+          <h3><a href="https://talks.tager.cc/talk/algebraic-data-types" target="_blank" rel="noopener noreferrer">Algebraic data types</a></h3>
+          <p>What is all the fuss about ADTs?</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://talks.tager.cc/talk/will-you-be-my-covariant" target="_blank" rel="noopener noreferrer">Will you be my covariant</a></h3>
+          <p>Discovering the meaning of covariance and contravariance.</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://slides.com/leontager/are-you-my-type" target="_blank" rel="noopener noreferrer">What &lt;T&gt;ype are you?</a></h3>
+          <p>An exploration of the TypeScript type hierarchy.</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://slides.com/leontager/my-attempt-at-monads" target="_blank" rel="noopener noreferrer">Introduction to monads</a></h3>
+          <p>A primer on functional programming and monads.</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://slides.com/leontager/personal-finance-ii" target="_blank" rel="noopener noreferrer">Intro to personal finance</a></h3>
+          <p>A quick primer on personal finance for those just starting their career.</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://docs.google.com/presentation/d/1VfQLQZgjAHZHu3rKvO633MDg7Y1lFawmwAcAbB7-Fyg/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Intermittent fasting</a></h3>
+          <p>What is intermittent fasting and what are the benefits?</p>
+        </div>
+        <div class="talk">
+          <h3><a href="https://docs.google.com/presentation/d/1fYkBhSPNr1m0qfvkR03zMAS0BzOI47oPmPVxy5BEeOM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Heart disease</a></h3>
+          <p>What is the root cause of heart disease.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="education-heading">
+      <h2 class="section-title" id="education-heading">Education</h2>
+
+      <div class="edu-item">
+        <div class="edu-year">2008</div>
+        <div>
+          <h3>B. Sc. Hons. (Computer Science)</h3>
+          <p>University of Toronto</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2015</div>
+        <div>
+          <h3>Machine Learning Certificate</h3>
+          <p>Coursera</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
